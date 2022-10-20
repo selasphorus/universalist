@@ -1,2 +1,2 @@
 # universalist
-WP theme for ASNYC
+WordPress theme "Universalist" for ASNYC
