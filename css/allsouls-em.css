@@ -512,18 +512,6 @@ div.em_event {
     text-decoration: none;
 }
 
-.devsite .em .em-pagination.overflowing .not-current .page-numbers {
-    opacity: 0.5;
-}
-
-.devsite .not-current.first-half {
-    border: 2px solid transparent;
-}
-
-.devsite .not-current.second-half {
-    border: 2px solid transparent;
-}
-
 .em .em-pagination.overflowing .not-current:after,
 .em .em-pagination.overflowing .not-current.first-half:after,
 .em .em-pagination.overflowing .not-current.second-half:after {
