@@ -463,6 +463,8 @@ div.em_event {
     margin-bottom: .5rem;
 }
 
+*/
+
 .em-pagination .page-numbers,
 .em .em-pagination .page-numbers,
 .em .em-pagination .page-numbers.current,
@@ -527,7 +529,6 @@ div.em_event {
 .em .em-pagination.overflowing .not-current.second-half:after {
     padding: 0;
 }
-*/
 
 /*** EM Event Registration/Booking ***/
 
