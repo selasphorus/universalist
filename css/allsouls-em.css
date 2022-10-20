@@ -465,6 +465,28 @@ div.em_event {
 
 */
 
+
+.em-pagination .page-numbers {
+    display: inline-block;
+    width: 2rem;
+    margin: 0 0.1rem 0.5rem 0;
+    padding: 0.5rem 0.1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: normal;
+    background: #E9E7E7;
+    color: #333333;
+    border: 0;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.em-pagination .page-numbers.current {
+    background: #E81E12;
+    color: #ffffff;
+}
+
 .em-pagination .page-numbers,
 .em .em-pagination .page-numbers,
 .em .em-pagination .page-numbers.current,
