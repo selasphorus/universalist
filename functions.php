@@ -28,7 +28,8 @@ function site_scripts_and_styles() {
     wp_enqueue_style( 'twentysixteen-style', get_stylesheet_uri(), NULL, $ver );
 	
     // Events Manager (EM) style overrides and additions
-    $ver = filemtime( get_stylesheet_directory() . '/css/allsouls-em.css');
+    //$ver = filemtime( get_stylesheet_directory() . '/css/allsouls-em.css');
+    $ver = "1.0";
     wp_enqueue_style( 'atc-em-style', get_stylesheet_directory_uri() . '/css/allsouls-em.css', NULL, $ver );
     
 	if ( is_admin() ) {		
