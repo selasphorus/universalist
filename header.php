@@ -49,9 +49,9 @@
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/graphics/allsouls-logo.png" alt="AllSoulsNYC logo" /></a>
 				</div><!-- .site-branding -->
 				
-                <div class="header-search">
-                    <?php get_search_form(); ?>
-                </div>
+                <!--div class="header-search">
+                    <?php //get_search_form(); ?>
+                </div-->
                 
 				<?php /*<div id="giving-cta" class="header-call-to-action">
 					<a href="/product-category/giving/"><span class="button-text">Give to Saint Thomas Church</span></a>
