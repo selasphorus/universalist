@@ -78,7 +78,7 @@
 				
 				<?php if ( has_nav_menu( 'header-tabs' ) ) : ?>
 					<div id="header-tabs">
-					<nav id="site-navigation-tertiary" class="tertiary-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Header Tabs Menu', 'twentysixteen' ); ?>">
+					<nav id="site-navigation-tertiary" class="tertiary-navigation" aria-label="<?php esc_attr_e( 'Header Tabs Menu', 'twentysixteen' ); ?>">
 						<?php
 							wp_nav_menu(
 								array(
@@ -92,7 +92,7 @@
 				<?php endif; ?>
 
 				<?php if ( has_nav_menu( 'primary' ) ) : ?>
-					<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
+					<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
 						<?php
 							wp_nav_menu(
 								array(
