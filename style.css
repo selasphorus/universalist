@@ -730,6 +730,7 @@ No Sidebar/Full Width page
 .site-header-main,
 .wp-custom-logo .site-header-main {
     max-width: 1252px; /* was 1200px; -- ok on Chrome but broke safari. */
+    max-height: 160px;
     margin: 0 auto;
 	-webkit-align-items: normal;
 	align-items: normal;
@@ -1079,7 +1080,7 @@ ul.mega-sub-menu {
 
 #header-tabs,
 #mega-menu-wrap-header-tabs #mega-menu-header-tabs {
-	margin: -1.6rem 0 0 0;
+	margin: -1.2rem 0 0 0;
     position: absolute;
     right: 2rem;
     width: 100%;
