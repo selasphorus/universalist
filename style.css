@@ -1118,6 +1118,9 @@ ul.header-tabs li,
     height: auto;
 }
 
+#mega-menu-wrap-header-tabs #mega-menu-header-tabs li#mega-menu-item-5288 {
+    height: 2.5rem;
+}
 
 .mega-toggle-block.mega-html-block h2,
 .mega-toggle-block.mega-html-block h2 a, 
