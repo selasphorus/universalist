@@ -1084,11 +1084,6 @@ ul.mega-sub-menu {
     right: 2rem;
 }
 
-/*body #header-tabs,*/
-body.devsite #header-tabs {
-    margin: auto;
-}
-
 #header-tabs ul {
     list-style: none;
 	margin: 0;
@@ -1112,7 +1107,8 @@ ul.header-tabs li,
 	font-family: var(--global--font-primary);
 }
 
-#header-tabs li a {
+#header-tabs li a,
+#mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item a {
 	color: #E9E7E7;
 }
 
