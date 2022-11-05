@@ -1078,8 +1078,7 @@ ul.mega-sub-menu {
 }
 
 #header-tabs,
-#mega-menu-wrap-header-tabs #mega-menu-header-tabs,
-#mega-menu-wrap-header-tabs #mega-menu-header-tabs li#mega-menu-item-5288 {
+#mega-menu-wrap-header-tabs #mega-menu-header-tabs {
 	margin: -1.6rem 0 0 0;
     position: absolute;
     right: 2rem;
@@ -1112,7 +1111,8 @@ ul.header-tabs li,
 
 #header-tabs li a,
 #mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item a,
-#mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item > a.mega-menu-link {
+#mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item > a.mega-menu-link,
+#mega-menu-wrap-header-tabs #mega-menu-header-tabs li#mega-menu-item-5288 {
 	color: #E9E7E7;
     line-height: normal;
     height: auto;
