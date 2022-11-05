@@ -1078,7 +1078,8 @@ ul.mega-sub-menu {
 }
 
 #header-tabs,
-#mega-menu-wrap-header-tabs #mega-menu-header-tabs {
+#mega-menu-wrap-header-tabs #mega-menu-header-tabs,
+#mega-menu-wrap-header-tabs #mega-menu-header-tabs li#mega-menu-item-5288 {
 	margin: -1.6rem 0 0 0;
     position: absolute;
     right: 2rem;
