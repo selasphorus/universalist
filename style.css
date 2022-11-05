@@ -1096,7 +1096,7 @@ ul.header-tabs li,
 #mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item {
     display: inline-block;
 	height: auto; /* was 2rem */
-	padding: 0 1rem;
+	padding: 0.5rem;
 	background: #4D4947;
     box-shadow: inset 0 1px 0 rgba(255,255,255, .25);
     border-bottom: 1px solid #464241;
