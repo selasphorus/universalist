@@ -1095,7 +1095,7 @@ ul.mega-sub-menu {
 ul.header-tabs li,
 #mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item {
     display: inline-block;
-	height: fit-content; /* was 2rem */
+	height: auto; /* was 2rem */
 	padding: 0 1rem;
 	background: #4D4947;
     box-shadow: inset 0 1px 0 rgba(255,255,255, .25);
@@ -1105,7 +1105,7 @@ ul.header-tabs li,
     -webkit-border-radius: 10px 10px 0 0;
     -webkit-font-smoothing: antialiased;
 	font-size: 0.8rem;
-	line-height: 2rem;
+	/*line-height: 2rem;*/
 	font-family: var(--global--font-primary);
 }
 
@@ -1113,6 +1113,8 @@ ul.header-tabs li,
 #mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item a,
 #mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item > a.mega-menu-link {
 	color: #E9E7E7;
+    line-height: normal;
+    height: auto;
 }
 
 
