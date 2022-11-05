@@ -4173,10 +4173,7 @@ yellow-orange: #f2b515
     }
 	
     #site-header-menu {
-		/*max-width: 1252px;*/
-		margin: 0 auto;
-		/*width: 100%;
-		margin: 0;*/
+		margin: 2rem auto 0 auto;
 		padding: 0px;
     }
 	
