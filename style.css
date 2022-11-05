@@ -37,6 +37,11 @@ hsl(179, 38%, 60%)
 -- general
 bluegrey -- #8ba0a6
 dark blue grey -- 698189
+
+rgb(103, 133, 172) -- #6785AC
+rgb(126, 152, 185) -- #7E98B9
+
+
 */
 
 :root {
@@ -4846,7 +4851,7 @@ yellow-orange: #f2b515
 	
 	#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-item,
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
-		font-size: 1.2rem;
+		font-size: 1.3rem;
 		/*line-height: 3.2rem;*/
 	}
 	
