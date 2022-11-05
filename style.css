@@ -1082,6 +1082,7 @@ ul.mega-sub-menu {
 	margin: -1.9rem 0 0 0;
     position: absolute;
     right: 2rem;
+    width: 100%;
 }
 
 #header-tabs ul {
