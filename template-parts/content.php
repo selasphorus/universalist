@@ -28,7 +28,7 @@
 
 	<div class="entry-content">
 		
-		<?php echo atc_custom_post_content(); ?>
+		<?php echo sdg_custom_post_content(); ?>
 		
 		<?php
         

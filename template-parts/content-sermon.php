@@ -38,7 +38,7 @@ $subtitle = get_post_meta( $post_id, 'subtitle', true );
             
             echo get_cpt_sermon_meta();
             allsouls_post_thumbnail();
-            echo atc_custom_post_content(); // Specialized content per Custom Post Type (CPT)
+            echo sdg_custom_post_content(); // Specialized content per Custom Post Type (CPT)
             
             /* translators: %s: Name of current post */
             the_content(

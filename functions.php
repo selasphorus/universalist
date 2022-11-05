@@ -268,21 +268,6 @@ function atc_get_type_for_template() {
 	
 }
 
-// Is this the dev or live site?
-/*if ( !function_exists( 'atc_custom_post_content' ) ) {
-
-    // Umbrella function to get CPT content -- TMP placeholder in case allsouls plugin isn't loading... -- see allsouls.php
-    function atc_custom_post_content() {
-        
-        $info = "";
-        
-        $info .= "<!-- placeholder for atc_custom_post_content -- check allsouls plugin status! -->";
-
-        return $info;
-        
-    }
-}*/
-
 /* Modify post thumbnail size to crop 'large' instead of merely scaling -- helps things line up better, e.g. "Related Events" */
 // Large Size Thumbnail
 if (false === get_option("medium_crop") ) {
