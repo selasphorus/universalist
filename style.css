@@ -1103,7 +1103,7 @@ ul.header-tabs li,
 #mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item {
     display: inline-block;
 	height: auto; /* was 2rem */
-	padding: 0.5rem;
+	padding: 0.4rem 0.5rem;
 	background: #698189;
     box-shadow: inset 0 1px 0 rgba(255,255,255, .25);
     border-bottom: 1px solid #698189;
@@ -1114,6 +1114,7 @@ ul.header-tabs li,
 	font-size: 0.8rem;
 	/*line-height: 2rem;*/
 	font-family: var(--global--font-primary);
+    margin-left: 3px;
 }
 
 #header-tabs li a,
