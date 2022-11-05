@@ -1108,7 +1108,8 @@ ul.header-tabs li,
 }
 
 #header-tabs li a,
-#mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item a {
+#mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item a,
+#mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item > a.mega-menu-link {
 	color: #E9E7E7;
 }
 
