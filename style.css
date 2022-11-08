@@ -4400,12 +4400,12 @@ yellow-orange: #f2b515
 	
 	#mega-menu-wrap-primary:before {
 		content: '+*+*+*+';
-		position: absolute;
+		/*position: absolute;
 		top: 0;
 		right: 0;
 		border-top: 80px solid white;
 		border-left: 80px solid red;
-		width: 0;
+		width: 0;*/
 	}
 
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
