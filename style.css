@@ -720,6 +720,8 @@ No Sidebar/Full Width page
 }
 
 #site-header-menu {
+    max-width: 1252px;
+    margin: 0 auto;
 	position: relative;
 	/*position: -webkit-sticky;  Safari */
 	/*position: sticky;*/
