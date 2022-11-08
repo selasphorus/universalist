@@ -488,7 +488,7 @@ endif;
 
 
 // Replaces the excerpt "Read More" text by a link
-//add_filter('excerpt_more', 'atc_excerpt_more');
+add_filter('excerpt_more', 'atc_excerpt_more');
 function atc_excerpt_more($more) {
     global $post;
     return '<a class="moretag" href="'. get_permalink($post->ID) . '"><p><em>Read more...</em></p></a>';
@@ -505,68 +505,6 @@ function excerpt_more_for_manual_excerpts( $excerpt ) {
     return $excerpt;
 }
 
-// Allow select HTML tags in excerpts
-// https://wordpress.stackexchange.com/questions/141125/allow-html-in-excerpt
-function allsouls_allowedtags() {
-    return '<style>,<br>,<em>,<strong>'; 
-}
-
-if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) : 
-
-    function wpse_custom_wp_trim_excerpt($excerpt) {
-        
-        global $post;
-        
-        $raw_excerpt = $excerpt;
-        if ( '' == $excerpt ) {
-
-            $excerpt = get_the_content('');
-            $excerpt = strip_shortcodes( $excerpt );
-            $excerpt = apply_filters('the_content', $excerpt);
-            $excerpt = str_replace(']]>', ']]&gt;', $excerpt);
-            $excerpt = strip_tags($excerpt, allsouls_allowedtags()); /*IF you need to allow just certain tags. Delete if all tags are allowed */
-
-            //Set the excerpt word count and only break after sentence is complete.
-            $excerpt_word_count = 75;
-            $excerpt_length = apply_filters('excerpt_length', $excerpt_word_count); 
-            $tokens = array();
-            $excerptOutput = '';
-            $count = 0;
-
-            // Divide the string into tokens; HTML tags, or words, followed by any whitespace
-            preg_match_all('/(<[^>]+>|[^<>\s]+)\s*/u', $excerpt, $tokens);
-
-            foreach ($tokens[0] as $token) { 
-
-                if ($count >= $excerpt_length && preg_match('/[\,\;\?\.\!]\s*$/uS', $token)) { 
-                // Limit reached, continue until , ; ? . or ! occur at the end
-                    $excerptOutput .= trim($token);
-                    break;
-                }
-
-                // Add words to complete sentence
-                $count++;
-
-                // Append what's left of the token
-                $excerptOutput .= $token;
-            }
-
-            $excerpt = trim(force_balance_tags($excerptOutput));
-            
-            // After the content
-            $excerpt .= atc_excerpt_more( '' );
-
-            return $excerpt;   
-
-        } else if ( has_excerpt( $post->ID ) ) {
-            //$excerpt .= atc_excerpt_more( '' );
-            //$excerpt .= "***";
-        }
-        return apply_filters('wpse_custom_wp_trim_excerpt', $wpse_excerpt, $raw_excerpt);
-    }
-
-endif; 
-
 // Replace trim_excerpt function -- temp disabled for troubleshooting
 //remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 //add_filter('get_the_excerpt', 'wpse_custom_wp_trim_excerpt'); 
@@ -580,84 +518,6 @@ function child_theme_setup() {
 }
 
 add_post_type_support( 'page', 'excerpt' );
-
-
-
-/* Function to allow for multiple different excerpt lengths as needed
- * Call as follows:
- * Adapted from https://www.wpexplorer.com/custom-excerpt-lengths-wordpress/
- *
- */
-function atc_get_excerpt( $args = array() ) {
-
-	// Defaults
-	$defaults = array(
-		'post'            => '',
-		'length'          => 40,
-		'readmore'        => false,
-		'readmore_text'   => esc_html__( 'read more', 'text-domain' ),
-		'readmore_after'  => '',
-		'custom_excerpts' => true,
-		'disable_more'    => false,
-	);
-
-	// Apply filters
-	$defaults = apply_filters( 'atc_get_excerpt_defaults', $defaults );
-
-	// Parse args
-	$args = wp_parse_args( $args, $defaults );
-
-	// Apply filters to args
-	$args = apply_filters( 'atc_get_excerpt_args', $defaults );
-
-	// Extract
-	extract( $args );
-
-	// Get global post data
-	if ( ! $post ) {
-		global $post;
-	}
-
-	// Get post ID
-	$post_id = $post->ID;
-
-	// Check for custom excerpt
-	if ( $custom_excerpts && has_excerpt( $post_id ) ) {
-		$output = $post->post_excerpt;
-	}
-
-	// No custom excerpt...so lets generate one
-	else {
-        
-        $readmore_link = '<br /><a href="' . get_permalink( $post_id ) . '" class="readmore">' . $readmore_text . $readmore_after . '</a>';
-
-		// Check for more tag and return content if it exists
-		if ( ! $disable_more && strpos( $post->post_content, '<!--more-->' ) ) {
-			$output = apply_filters( 'the_content', get_the_content( $readmore_text . $readmore_after ) );
-		}
-
-		// No more tag defined so generate excerpt using wp_trim_words
-		else {
-
-			// Generate excerpt
-			$output = wp_trim_words( strip_shortcodes( $post->post_content ), $length );
-
-			// Add readmore to excerpt if enabled
-			if ( $readmore ) {
-
-				$output .= apply_filters( 'atc_readmore_link', $readmore_link );
-
-			}
-
-		}
-
-	}
-
-	// Apply filters and echo
-	return apply_filters( 'atc_get_excerpt', $output );
-
-}
-
 
 /**
  * Prints HTML with meta information for the categories, tags.
