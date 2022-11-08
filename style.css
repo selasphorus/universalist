@@ -713,6 +713,7 @@ No Sidebar/Full Width page
     margin: 0;
 	padding: 0.5rem 0 0 0;
     background-color: #ffffff;
+    background-image: linear-gradient(to bottom, white, white, white, white, #b7c4c8);
     /*background-image: linear-gradient(#66625f, #938f8b);
 	background-image: url('graphics/masthead-background-180px.png');
 	background-repeat: repeat;*/
@@ -1011,7 +1012,11 @@ a.affiliation:hover {
 #mega-menu-wrap-secondary-header-nav #mega-menu-secondary-header-nav > li.mega-menu-item.mega-hide-on-mobile {
 	display: none;
 }
-	
+
+#mega-menu-wrap-primary {
+	background: transparent;
+}
+
 #mega-menu-wrap-primary .mega-menu-toggle {
     background-image: url(graphics/navbar-background-mobile.png);
 }
