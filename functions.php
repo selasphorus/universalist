@@ -488,10 +488,10 @@ function atc_excerpt_more() { //function atc_excerpt_more($more) {
 add_filter( 'get_the_excerpt', 'excerpt_more_for_manual_excerpts' );
 function excerpt_more_for_manual_excerpts( $excerpt ) {
 
-    if ( has_excerpt() ) {
-        $excerpt .= atc_excerpt_more();
-    } else {
-    	$excerpt .= "*"; // tft
+	if ( ! $excerpt ) {
+		$excerpt = "XXX"; // tft
+	} else {
+		$excerpt .= atc_excerpt_more();
     }
 
     return $excerpt;
