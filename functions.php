@@ -480,10 +480,11 @@ endif;
 
 // TODO: get the followin filter functions working -- post id can't be retrieved properly when used by display_posts (see DP plugin)
 // Replaces the excerpt "Read More" text by a link
-//add_filter('excerpt_more', 'atc_excerpt_more');
+add_filter('excerpt_more', 'atc_excerpt_more');
 function atc_excerpt_more() { //function atc_excerpt_more($more) {
-    global $post;
-    return '&nbsp;<a class="moretag" href="'. get_permalink($post->ID) . '"><em>Read more...</em></a>'; // <p></p>
+    //global $post;
+    //return '&nbsp;<a class="moretag" href="'. get_permalink($post->ID) . '"><em>Read more...</em></a>'; // <p></p>
+    return "";
 }
 
 //add_filter( 'get_the_excerpt', 'excerpt_more_for_manual_excerpts' );
@@ -492,9 +493,9 @@ function excerpt_more_for_manual_excerpts( $excerpt ) {
 	global $post;
 	if ( ! strpos($excerpt,'Read more...') ) {
 		$excerpt .= atc_excerpt_more();
-    } else {
+    }/* else {
     	$excerpt = str_replace('&nbsp;<a','&nbsp;. . . <a',$excerpt);
-    }
+    }*/
 
     return $excerpt;
 }
