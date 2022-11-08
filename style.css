@@ -1763,6 +1763,11 @@ body.devsite.woocommerce-checkout .payment_method_braintree_credit_card {
     text-shadow: none;
 }*/
 
+
+button {
+	background: #698189;
+}
+
 input[type="button"]:hover,
 input[type="submit"]:hover,
 .button:hover {
