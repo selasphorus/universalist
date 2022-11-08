@@ -1012,6 +1012,21 @@ a.affiliation:hover {
 	display: none;
 }
 
+#mega-menu-wrap-primary:before {
+	content: '+*+*+*+';
+	/*position: absolute;
+	top: 0;
+	right: 0;
+	border-top: 80px solid white;
+	border-left: 80px solid red;
+	width: 0;*/
+}
+
+#mega-menu-wrap-primary:after {
+	content: "test";
+}
+	
+	
 #mega-menu-wrap-primary .mega-menu-toggle {
     background-image: url(graphics/navbar-background-mobile.png);
 }
