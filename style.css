@@ -1013,7 +1013,8 @@ a.affiliation:hover {
 }
 
 #mega-menu-wrap-primary:before {
-	content: '+*+*+*+';
+	font-family: "dashicons";
+    content: "\f301";
 	/*position: absolute;
 	top: 0;
 	right: 0;
@@ -1023,7 +1024,8 @@ a.affiliation:hover {
 }
 
 #mega-menu-wrap-primary:after {
-	content: "test";
+	font-family: "dashicons";
+    content: "\f301";
 }
 	
 	
