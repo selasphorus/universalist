@@ -1101,7 +1101,6 @@ ul.mega-sub-menu {
 #header-tabs li,
 ul.header-tabs li,
 #mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item {
-    display: inline-block;
 	height: auto; /* was 2rem */
 	padding: 0.4rem 0.5rem;
 	background: #698189;
@@ -4441,6 +4440,12 @@ yellow-orange: #f2b515
     
 	#header-tabs {
         right: 2rem;
+    }
+    
+    #header-tabs li,
+	ul.header-tabs li,
+	#mega-menu-wrap-header-tabs #mega-menu-header-tabs > li.mega-menu-item {
+		display: inline-block;
     }
 	
 	/* Make the mega search expand downward instead of right -- hackishly */
