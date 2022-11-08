@@ -4397,6 +4397,16 @@ yellow-orange: #f2b515
 		height: 52px;*/
 		box-shadow: 0 13px 10px 1px rgb(0 0 0 / 30%);
 	}
+	
+	#mega-menu-wrap-primary:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-top: 80px solid white;
+		border-left: 80px solid red;
+		width: 0;
+	}
 
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
 		font-size: 0.8rem;
