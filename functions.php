@@ -482,9 +482,9 @@ function atc_footer_copyright() {
 endif;
 
 /* Limit excerpt length */
-add_filter( 'excerpt_length', function($length) {
+/*add_filter( 'excerpt_length', function($length) {
     return 15;
-} );
+} );*/
 
 
 // Replaces the excerpt "Read More" text by a link
