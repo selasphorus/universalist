@@ -1090,7 +1090,7 @@ ul.mega-sub-menu {
 #mega-menu-wrap-header-tabs #mega-menu-header-tabs {
 	margin: -1.2rem 0 0 0;
     position: absolute;
-    right: 2rem;
+    right: 0rem;
     width: 100%;
     text-align: right;
 }
@@ -4441,7 +4441,7 @@ yellow-orange: #f2b515
     }
     
 	#header-tabs {
-        right: 2rem;
+        right: 0rem;
     }
     
     #header-tabs li,
