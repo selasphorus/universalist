@@ -709,6 +709,7 @@ No Sidebar/Full Width page
 #masthead {
     width: 100%;
     position: relative;
+    z-index: 1;
 	/*position: -webkit-sticky;  Safari */
 	/*position: sticky;*/
     margin: 0;
