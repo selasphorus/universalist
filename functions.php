@@ -101,15 +101,6 @@ function universalist_query_vars( $qvars ) {
     return $qvars;
 }
 
-// Is this the dev or live site?
-if ( !function_exists( 'is_dev_site' ) ) {
-
-    function is_dev_site() {
-        $subdomain = explode('.', $_SERVER['HTTP_HOST'])[0];
-        if ($subdomain == "dev") { return true; } else { return false; }
-    }
-}
-
 // In case the allsouls plugin hasn't loaded properly, avoid a fatal error when other plugins call the logging fcn
 /*if ( !function_exists( 'birdhive_log' ) ) {
     function birdhive_log($log_msg) {
