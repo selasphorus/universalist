@@ -4407,7 +4407,11 @@ yellow-orange: #f2b515
 		border-left: 80px solid red;
 		width: 0;*/
 	}
-
+	
+	#mega-menu-wrap-primary:after {
+		content: "test";
+	}
+	
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
 		font-size: 0.8rem;
 		padding: 0 0.5rem;
