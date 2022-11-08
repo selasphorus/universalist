@@ -479,13 +479,13 @@ endif;
 
 
 // Replaces the excerpt "Read More" text by a link
-add_filter('excerpt_more', 'atc_excerpt_more');
+//add_filter('excerpt_more', 'atc_excerpt_more');
 function atc_excerpt_more() { //function atc_excerpt_more($more) {
     global $post;
     return '&nbsp;<a class="moretag" href="'. get_permalink($post->ID) . '"><em>Read more...</em></a>'; // <p></p>
 }
 
-add_filter( 'get_the_excerpt', 'excerpt_more_for_manual_excerpts' );
+//add_filter( 'get_the_excerpt', 'excerpt_more_for_manual_excerpts' );
 function excerpt_more_for_manual_excerpts( $excerpt ) {
 
 	global $post;
