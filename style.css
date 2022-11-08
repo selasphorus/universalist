@@ -1013,10 +1013,6 @@ a.affiliation:hover {
 	display: none;
 }
 
-#mega-menu-wrap-primary {
-	background: transparent;
-}
-
 #mega-menu-wrap-primary .mega-menu-toggle {
     background-image: url(graphics/navbar-background-mobile.png);
 }
@@ -4394,13 +4390,15 @@ yellow-orange: #f2b515
 	}
 	
 	#mega-menu-wrap-primary {
-        /*background: #dae4e8;*/
-        background: linear-gradient(to bottom, #ffffff, #b7c4c8);
+		background: transparent;
+		box-shadow: none;
+		/*background: #dae4e8;*/
+        /*background: linear-gradient(to bottom, #ffffff, #b7c4c8);*/
 		/*background: linear-gradient(to bottom, #486284, #6785ac);
 		background-image: url('graphics/navbar-background.png');
 		background-repeat: repeat;
 		height: 52px;*/
-		box-shadow: 0 13px 10px 1px rgb(0 0 0 / 30%);
+		/*box-shadow: 0 13px 10px 1px rgb(0 0 0 / 30%);*/
 	}
 	
 	/*#mega-menu-wrap-primary:before {
