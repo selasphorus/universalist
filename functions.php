@@ -489,7 +489,7 @@ add_filter( 'get_the_excerpt', 'excerpt_more_for_manual_excerpts' );
 function excerpt_more_for_manual_excerpts( $excerpt ) {
     global $post;
 
-    if ( has_excerpt( $post->ID ) ) {
+    if ( has_excerpt( $post ) ) {
         $excerpt .= atc_excerpt_more();
     } else {
     	$excerpt .= "*"; // tft
