@@ -4399,7 +4399,7 @@ yellow-orange: #f2b515
 	}
 	
 	#mega-menu-wrap-primary:before {
-		content: '';
+		content: '+*+*+*+';
 		position: absolute;
 		top: 0;
 		right: 0;
