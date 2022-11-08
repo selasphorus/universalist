@@ -490,6 +490,8 @@ function excerpt_more_for_manual_excerpts( $excerpt ) {
 
 	if ( ! strpos($excerpt,'Read more...') ) {
 		$excerpt .= atc_excerpt_more();
+    } else {
+    	$excerpt = str_replace('&nbsp;<a','&nbsp;. . . <a',$excerpt);
     }
 
     return $excerpt;
