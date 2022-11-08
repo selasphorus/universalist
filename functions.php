@@ -482,7 +482,7 @@ endif;
 add_filter('excerpt_more', 'atc_excerpt_more');
 function atc_excerpt_more($more) {
     global $post;
-    return '<a class="moretag" href="'. get_permalink($post->ID) . '"><em>Read more...</em></a>'; // <p></p>
+    return '&nbsp;<a class="moretag" href="'. get_permalink($post->ID) . '"><em>Read more...</em></a>'; // <p></p>
 }
 
 add_filter( 'get_the_excerpt', 'excerpt_more_for_manual_excerpts' );
