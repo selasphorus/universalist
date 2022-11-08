@@ -491,6 +491,8 @@ function excerpt_more_for_manual_excerpts( $excerpt ) {
 
     if ( has_excerpt( $post->ID ) ) {
         $excerpt .= atc_excerpt_more();
+    } else {
+    	$excerpt .= "*"; // tft
     }
 
     return $excerpt;
