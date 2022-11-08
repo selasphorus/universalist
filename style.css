@@ -4436,6 +4436,8 @@ yellow-orange: #f2b515
 	}
 
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link,
+	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-ancestor > a.mega-menu-link, 
+	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-page-ancestor > a.mega-menu-link,
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link:hover,
 	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link:focus {
 		background: linear-gradient(to bottom, #8ba0a6, #b7c4c8);
