@@ -4,23 +4,29 @@
  * This page displays a list of events, called during the em_content() if this is an events list page.
  * You can override the default display settings pages by copying this file to yourthemefolder/plugins/events-manager/templates/ and modifying it however you need.
  * You can display events however you wish, there are a few variables made available to you:
- * 
- * $args - the args passed onto EM_Events::output()
- * 
  */
 
-echo "<!-- wpt: events-manager -> events-list -->\n"; // [atc]
-
+/* @var array $args - the args passed onto EM_Events::output() */
 $args = apply_filters('em_content_events_args', $args);
+if( empty($args['id']) ) $args['id'] = rand(); // prevent warnings
+$id = esc_attr($args['id']);
 
-//echo "<h3>".'$args'.": <pre>".print_r( $args, true )."</pre>"; // tft
+/*** Start STC/ATC ***/
 
-$the_date = $args['calendar_day']; // [atc]
-if ( $the_date ) {
-    echo "<!-- the_date: $the_date -->\n"; // [atc]
-    //echo do_shortcode( '[day_title the_date="'.$the_date.'"]' );
+echo '<!-- wpt: events-manager/templates/events-list.php -->';
+echo '<div class="troubleshooting">'.'args'.": <pre>".print_r( $args, true )."</pre>".'</div>'; // tft
+
+if ( isset($args['calendar_day']) ) {
+    $the_date = $args['calendar_day']; // [atc]
+    if ( $the_date ) {
+        echo "<!-- the_date: $the_date -->\n"; // [atc]
+        //echo do_shortcode( '[day_title the_date="'.$the_date.'"]' );
+    }
+} else {
+    $the_date = null;
 }
 
+/*
 if( get_option('dbem_css_evlist') ) echo "<div class='css-events-list'>";
 
 //echo EM_Events::output( $args );
@@ -29,3 +35,15 @@ $content = remove_empty_p( $content );
 echo $content;
 
 if( get_option('dbem_css_evlist') ) echo "</div>";
+*/
+
+/*** End STC/ATC ***/
+?>
+
+<div class="<?php em_template_classes('view-container'); ?>" id="em-view-<?php echo $id; ?>" data-view="list">
+	<div class="<?php em_template_classes('events-list'); ?>" id="em-events-list-<?php echo $id; ?>" data-view-id="<?php echo $id; ?>">
+	<?php
+	if ( !empty($args) ) { echo EM_Events::output( $args ); } //echo EM_Events::output( $args ); //
+	?>
+	</div>
+</div>
