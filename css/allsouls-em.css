@@ -534,6 +534,19 @@ div.em_event {
     text-decoration: none;
 }
 
+.devsite .em .em-pagination.overflowing .not-current .page-numbers {
+    /*display: block;*/
+    opacity: 0.5;
+}
+
+.devsite .not-current.first-half {
+    border: 2px solid transparent;
+}
+
+.devsite .not-current.second-half {
+    border: 2px solid transparent;
+}
+
 .em .em-pagination.overflowing .not-current:after,
 .em .em-pagination.overflowing .not-current.first-half:after,
 .em .em-pagination.overflowing .not-current.second-half:after {
@@ -720,9 +733,52 @@ ul.event-categories > li > a {
 */
 
 /*** EM Events Search Tools ***/
-/*
+
+.em.em-search .em-search-main.em-search-main-bar, .em.em-search-advanced .em-search-main.em-search-main-bar {
+    flex-wrap: wrap;
+}
+
+.em.em-search .em-search-main.em-search-main-bar>.em-search-text {
+    width: 50%;
+}
+
+.em.em-search.has-advanced.has-views .em-search-views {
+    display: none;
+}
+
+/* For inline advanced search, hide redundant scope and text input fields -- we need them to exist so as not to break the JS */
+.advanced-mode-inline .em.em-search-advanced .em-search-main input.em-search-text,
+.advanced-mode-inline .em.em-search-advanced .em-search-main input.em-search-scope {
+    display: none;/**/
+}
+
+div.em-search-tools {
+    /*display: flex;*/
+    width: 100%;
+}
+.em.em-search.size-small .em-search-scope {
+    display: block;
+    visibility: visible;
+}
+
+div.em-search-scope {
+    /*min-width: 50%;
+    padding-right: 1rem;*/
+}
+
 .em.em-search.size-small {
     padding: 0!important;
+}
+
+.selectize-control.single .selectize-input.input-active, 
+.selectize-input,
+.selectize-dropdown, 
+.selectize-dropdown.form-control {
+    /*background: transparent;*/
+}
+
+.em .selectize-control.em-selectize.always-open .selectize-input input[type=text] {
+    margin: 0 !important;
 }
 
 div.css-search,
@@ -778,10 +834,22 @@ div.css-search div.em-search-main .em-search-submit:hover {
     color: #ffffff;
 }
 
+.em-search-category {
+    /*margin-right: 1rem;*/
+}
+
+.em .selectize-control.em-selectize.always-open .selectize-dropdown {
+    display: inherit !important;
+    max-height: 80px;
+    overflow: scroll;
+    overflow-x: clip;
+}
+
+
 input.placeholder {
     font-style: italic;
 }
-*/
+
 ::-webkit-input-placeholder {
     font-style: italic;
 }
