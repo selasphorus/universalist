@@ -37,7 +37,7 @@ if ( isset($_REQUEST['scope']) && (isset($_REQUEST['scope-source']) && $_REQUEST
 ?>
 
 <!-- START Date Search -->
-<div class="em-search-scope em-search-field em-datepicker em-datepicker-range input" data-separator="<?php echo esc_attr($args['scope_seperator']); ?>"  data-format="<?php echo esc_attr($args['scope_format']); ?>">
+<div class="em-search-scope em-search-field em-datepicker em-datepicker-range input" data-separator="<?php echo esc_attr($args['scope_seperator']); ?>" data-format="<?php echo esc_attr($args['scope_format']); ?>">
 	<label for="em-search-scope-<?php echo absint($args['id']) ?>" class="screen-reader-text"><?php echo esc_html($args['scope_label']); ?></label>
 	<input id="em-search-scope-<?php echo absint($args['id']) ?>" type="hidden" class="em-date-input em-search-scope" aria-hidden="true" placeholder="<?php echo esc_html($args['scope_label']); ?>">
 	<div class="em-datepicker-data">

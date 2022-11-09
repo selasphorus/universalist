@@ -1,4 +1,8 @@
-<?php /* @var $args array */ ?>
+<?php 
+/* @var $args array */ 
+$include = !empty($args['categories_include']) ? $args['categories_include']:array();
+$exclude = !empty($args['categories_exclude']) ? $args['categories_exclude']:array();
+?>
 
 <?php
 $troubleshooting = ""; // init
@@ -32,10 +36,14 @@ if ( $troubleshooting != "" && function_exists('devmode_active') && devmode_acti
 <!-- START Category Search -->
 <div class="em-search-category em-search-field">
 	<label for="em-search-category-<?php echo absint($args['id']) ?>" class="screen-reader-text"><?php echo esc_html($args['category_label']); ?></label>
-
-	<select name="category[]" class="em-search-category em-selectize always-open checkboxes" id="em-search-category-<?php echo absint($args['id']) ?>" multiple size="10" placeholder="<?php echo esc_attr($args['categories_placeholder']); ?>">
+	<?php
+	//1676, 1677, 2619
+	//select class: always-open 
+	?>
+	<select name="category[]" class="em-search-category em-selectize checkboxes" id="em-search-category-<?php echo absint($args['id']) ?>" multiple size="10" placeholder="<?php echo esc_attr($args['categories_placeholder']); ?>">
 		<?php
-		$categories = EM_Categories::get(array('orderby'=>'name','hide_empty'=>0));
+		$args_em = apply_filters('em_advanced_search_categories_args', array('orderby'=>'name','hide_empty'=>0, 'include' => $include, 'exclude' => $exclude));
+		$categories = EM_Categories::get($args_em);
 		$selected = array();
 		if( !empty($args['category']) ){
 			if( !is_array($args['category']) ){
@@ -45,8 +53,8 @@ if ( $troubleshooting != "" && function_exists('devmode_active') && devmode_acti
 			}
 		}
 		$walker = new EM_Walker_CategoryMultiselect();
-		$args_em = array(
-		    'hide_empty' => 0,
+		$args_em = apply_filters('em_advanced_search_categories_walker_args', array(
+		    'hide_empty' => 1,
 		    'orderby' =>'name',
 		    'name' => 'category',
 		    'hierarchical' => true,
@@ -54,8 +62,8 @@ if ( $troubleshooting != "" && function_exists('devmode_active') && devmode_acti
 		    'selected' => $selected,
 		    'show_option_none' => $args['categories_label'],
 		    'option_none_value'=> 0,
-			'walker'=> $walker
-		);
+			'walker'=> $walker,
+		));
 		echo walk_category_dropdown_tree($categories, 0, $args_em);
 		?>
 	</select>
