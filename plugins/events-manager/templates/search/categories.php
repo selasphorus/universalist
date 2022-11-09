@@ -24,7 +24,7 @@ if ( $category != "" ) {
     $args['category'] = $cat_id;
 }
 
-if ( $troubleshooting != "" && devmode_active() ) {
+if ( $troubleshooting != "" && function_exists('devmode_active') && devmode_active() ) {
     echo '<div class="troubleshooting">'.$troubleshooting.'</div>';
 }
 ?>
