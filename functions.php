@@ -314,12 +314,14 @@ function allsouls_post_thumbnail( $post_id = null, $imgsize = "thumbnail", $use_
             $troubleshooting_info .= "post has NO featured image.<br />";
 
             // If there's no featured image, see if there are any other images that we can use instead
-            $image_info = get_first_image_from_post_content( $post_id );
-            if ( $image_info ) {
-                $thumbnail_id = $image_info['id'];
-            } else {
-                $thumbnail_id = "test"; // tft
-            }
+            if ( function_exists('get_first_image_from_post_content') ) { 
+				$image_info = get_first_image_from_post_content( $post_id );
+				if ( $image_info ) {
+					$thumbnail_id = $image_info['id'];
+				} else {
+					$thumbnail_id = "test"; // tft
+				}
+			}
 
             if ( empty($thumbnail_id) ) {
 

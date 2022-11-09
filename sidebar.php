@@ -8,13 +8,15 @@
 <?php
 // Get custom post-specific sidebar content
 $post_id = get_the_ID();
-$post_widget = ""; // tft
-/*$post_widget = get_post_sidebar_widget($post_id);
-if ( $post_widget ) {
-    $widget_position = get_post_meta( $post_id, 'post_sidebar_widget_position', true ); // wip
-}*/
-// Get category description widget, if available
-//$category_widget = get_category_widget($post_id);
+if ( function_exists('get_post_sidebar_widget') ) {
+	$post_widget = get_post_sidebar_widget($post_id);
+	if ( $post_widget ) {
+		$widget_position = get_post_meta( $post_id, 'post_sidebar_widget_position', true ); // wip
+	}
+} else {
+	$post_widget = null;
+	$widget_position = null;
+}
 ?>
 
 <!-- wpt: sidebar -->
