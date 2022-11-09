@@ -30,7 +30,7 @@ function site_scripts_and_styles() {
     // Events Manager (EM) style overrides and additions
     //$ver = filemtime( get_stylesheet_directory() . '/css/allsouls-em.css');
     $ver = "1.0";
-    wp_enqueue_style( 'atc-em-style', get_stylesheet_directory_uri() . '/css/birdhive-events-manager.css', NULL, $ver );
+    wp_enqueue_style( 'atc-em-style', get_stylesheet_directory_uri() . '/css/allsouls-em.css', NULL, $ver );
     
 	if ( is_admin() ) {		
 		//wp_register_script('adminjs', TEMPLATE_URL . '/js/adminjs.js', array( 'jquery' ) );
