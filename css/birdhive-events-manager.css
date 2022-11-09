@@ -1,0 +1,982 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.em.em-calendar {
+    /* EM defaults
+    --nav-color: #777;
+    */
+    --nav-border: 1px solid #dedede;
+    --nav-background: none;
+    --event-border-color: #ccc;
+    --event-background-color: #dedede;
+    --event-color: #fff;
+    --header-border: 1px solid #dedede;
+    --header-background: transparent;
+    --header-color: #333333;
+    --date-box-border: 1px solid #dedede;
+    --date-color: #665F59;
+    --date-background: #F2F2F2;
+    --date-border-color: #cfcfcf; /*#cdcdcd*/
+    --date-border: 1px solid var(--date-border-color);
+    --date-today-color: var(--date-color);
+    --date-selected-color: #eeeeee;    
+    --date-today-background: #cfcfcf;
+    --date-today-border: 1px solid #cdcdcd;
+    --date-more-color: var(--nav-color);
+    --calendar-background: #E5E2E2;
+    --counter-background: #F36752;
+    /*
+    display: block;
+    width: 100%;
+    */
+}
+
+.em.em-calendar.size-small {
+    /*--header-border: none;*/
+    --header-background: var(--date-background);
+    --header-color: #333333;
+    --date-box-border: 1px solid var(--calendar-background);
+    margin: 0.25rem;
+    width: auto;
+}
+
+.em.em-calendar section > div:not(.em-modal) {
+    height: 2.7rem; /*inherit;*/
+    padding: 0;
+    margin: 0;
+}
+
+/*** Calendar navigation ***/
+
+.em.em-calendar.size-small .em-cal-nav {
+    margin: 0;
+    padding: 0.5rem 0 0 0;
+    background-color: #F2F2F2;
+    border: 1px solid #D3CFCE;
+}
+/* body:not(.devsite) // body.devsite */
+.em.em-calendar.size-small .em-cal-nav .month input {
+    padding: 0 0px 0.5rem 0 !important;
+    margin: 0 auto !important;
+}
+
+.em.em-calendar .em-cal-nav .month-nav {
+    margin-right: 1rem !important;
+    height: auto;
+}
+
+.em.em-calendar .em-cal-nav .month {
+    text-align: right;
+    height: auto;
+}
+
+.em.em-calendar .em-cal-nav .month-nav .em-calnav.em-calnav-prev {
+    position: absolute;
+    left: 1rem;
+}
+
+.widget .em.em-calendar p, 
+.widget .em.em-calendar form {
+    padding: 0;
+    margin: 0 auto;
+    width: fit-content;
+    width: 238px !important;
+    text-align: center;
+}
+
+.datepicker,
+.monthyear_picker {
+    cursor: pointer;
+}
+
+span.monthyear_picker,
+.em.em-calendar.size-small .em-cal-nav .month input {
+    display: block;
+    text-align: center;
+    font-family: Merriweather, Georgia, serif;
+    font-size: 1rem!important;
+}
+
+#ui-datepicker-div {
+    z-index: 10 !important;
+}
+
+#em-calendar-datepicker {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    padding: 1rem .1rem;
+    text-align: center;
+    width: 210px;
+    margin: auto;
+    margin-top: 1.8rem;
+    background: #FFF;
+    font-size: 0.9rem;
+    border: 1px solid #D3CFCE;
+}
+
+#em-calendar-datepicker input.button.em-search-submit {
+    margin-right: 2%;
+}
+
+#em-calendar-datepicker .em-date-input-loc {
+    margin-bottom: 0.5rem;
+}
+
+/*** Calendar header ***/
+
+.em.em-calendar .em-cal-head {
+    border: var(--header-border);
+    background: var(--date-background);
+    border-bottom: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.em.em-calendar .em-cal-head > div,
+.em.em-calendar .em-cal-head > div:first-child,
+.em.em-calendar section.em-cal-head > div,
+.em.em-calendar section.em-cal-head > div:first-child,
+.em.em-calendar section.em-cal-head > div:not(.em-modal) {
+    /*background: var(--header-background);*/
+    color: var(--header-color);
+    /*margin: 10px 0;
+    padding: 0 10px;
+    border-left: var(--header-border);
+    text-transform: uppercase;
+    overflow-x: hidden;
+    text-overflow: ellipsis;*/
+    border: 1px solid var(--date-border-color);
+    height: 2.7rem;
+    padding: 0.5rem 0 0 0;
+    margin: 0;
+}
+
+/*** Calendar body (dates) ***/
+
+.em.em-calendar .em-cal-body .em-cal-day,
+.em.em-calendar.size-small .em-cal-body .em-cal-day {
+    border: 1px solid var(--date-border-color);
+    background: var(--date-background);
+}
+
+.em.em-calendar.size-small .em-cal-body .em-cal-day .em-cal-day-date,
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventful-today .em-cal-day-date, 
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventless-today .em-cal-day-date {
+    width: inherit;
+    height: 100%;
+    vertical-align: middle;
+    background-color: inherit; /*background-color: var(--date-background);*/
+    border: none;
+}
+
+.em.em-calendar.size-small .em-cal-body .em-cal-day .em-cal-day-date.em-cal-day-date a, 
+.em.em-calendar.size-small .em-cal-body .em-cal-day .em-cal-day-date.em-cal-day-date span {
+    padding: 0.5rem 0 0 0;
+    width: inherit;
+    height: inherit;
+    font-size: 0.9rem;
+    /*padding: 6px;
+    width: 32px;
+    height: 32px;*/
+}
+
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a,
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventless-today .em-cal-day-date span,
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventful-today .em-cal-day-date.em-cal-day-date a,
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventless-today .em-cal-day-date.em-cal-day-date span {
+    padding: 0.5rem;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+.em.em-calendar .em-cal-body .em-cal-day .em-cal-day-date.em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day .em-cal-day-date.em-cal-day-date span {
+    border-radius: 0;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day.eventful .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventful-post .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventful-pre .em-cal-day-date a {
+    border: inherit!important;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a:hover, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a:hover,
+/***/
+.em.em-calendar .em-cal-body .em-cal-day.selected_date,
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today.selected_date,
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today.selected_date .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today.selected_date .em-cal-day-date a,
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today.selected_date .em-cal-day-date a:hover, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today.selected_date .em-cal-day-date a:hover,
+table.em-calendar td.selected_date,
+table.em-calendar td.eventful-today.selected_date {
+    background-color: #E81E12;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day.selected_date,
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today.selected_date,
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today.selected_date .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today.selected_date .em-cal-day-date a,
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today.selected_date .em-cal-day-date a:hover, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today.selected_date .em-cal-day-date a:hover,
+table.em-calendar td.selected_date,
+table.em-calendar td.eventful-today.selected_date {
+    background-color: #E81E12 !important;
+}
+
+.em-cal-day.selected_date a, 
+.em-cal-day.selected_date span,
+.em.em-calendar .em-cal-body .em-cal-day.selected_date a, 
+.em.em-calendar .em-cal-body .em-cal-day.selected_date span,
+.em.em-calendar .em-cal-body .em-cal-day.selected_date .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.selected_date .em-cal-day-date span,
+.em.em-calendar .em-cal-body .em-cal-day.selected_date .em-cal-day-date.em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.selected_date .em-cal-day-date.em-cal-day-date span,
+table.em-calendar td.selected_date a {
+    color: var(--date-selected-color)!important;
+    font-weight: bold;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day .em-cal-day-date.em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day .em-cal-day-date.em-cal-day-date span {
+    color: var(--date-color);
+    /*
+    color: var(--date-color)!important;    
+    text-decoration: none!important;
+    display: inline-block;
+    margin: 0;
+    padding: 5px 6px;
+    width: 34px;
+    height: 34px;
+    font-size: 16px; */
+    background: inherit; /*background: var(--date-background);*/
+    /*border-radius: 50%;
+    box-sizing: border-box; */
+}
+
+
+/*** Table styles -- soon to be obsolete except maybe for cal header ***/
+
+table.em-calendar {
+    margin-bottom: 0;
+    border: none;
+    border-spacing: 2px;
+    padding: 0 0.3rem;
+}
+
+.em.em-calendar table.em-calendar {
+    padding: 0;
+    border-spacing: 0;
+}
+
+table.em-calendar td {
+    padding: 0;
+    vertical-align: middle;
+    background-color: #F2F2F2;
+    border-width: 0 2px 2px 0;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+.em.em-calendar table.em-calendar td {
+    border: 1px solid var(--date-border-color);
+}
+
+.em.em-calendar.size-medium .em-cal-body .em-cal-day.eventful .em-cal-day-date.colored, 
+.em.em-calendar.size-medium .em-cal-body .em-cal-day.eventful-post .em-cal-day-date.colored, 
+.em.em-calendar.size-medium .em-cal-body .em-cal-day.eventful-pre .em-cal-day-date.colored, 
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventful .em-cal-day-date.colored, 
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventful-post .em-cal-day-date.colored, 
+.em.em-calendar.size-small .em-cal-body .em-cal-day.eventful-pre .em-cal-day-date.colored {
+    --date-border: none;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+/**/
+table.em-calendar tr.days-names td,
+table.em-calendar td.month_name, 
+table.em-calendar td.eventless, 
+table.em-calendar td.eventless-pre, 
+table.em-calendar td.eventless-post,
+table.em-calendar td.eventful a,
+table.em-calendar td.eventful-today a,
+table.em-calendar td.eventful-pre a,
+table.em-calendar td.eventful-post a {
+    padding: 0.5rem;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+/**/
+table.em-calendar td.eventful a,
+table.em-calendar td.eventful-today a,
+table.em-calendar td.eventful-pre a,
+table.em-calendar td.eventful-post a {
+    display: block;
+    vertical-align: middle;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a:hover, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a:hover,
+/**/
+table.em-calendar td.eventful a:hover,
+table.em-calendar td.eventful-today a:hover,
+table.em-calendar td.eventful-pre a:hover,
+table.em-calendar td.eventful-post a:hover {
+    background-color: #E81E12;
+    color: #eeeeee;
+    font-weight: bold;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+/**/
+table.em-calendar td.eventful a,
+table.em-calendar td.eventful-today a,
+table.em-calendar td.eventful-pre a,
+table.em-calendar td.eventful-post a,
+table.em-calendar td.eventless, 
+table.em-calendar td.eventless-pre, 
+table.em-calendar td.eventless-post {
+    font-size: 0.7rem;
+}
+
+.em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a, 
+.em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+/**/
+table.em-calendar td.eventful a, 
+table.em-calendar td.eventful-today a {
+    color: #665F59;
+}
+
+table.em-calendar td.eventless {
+    color: #aaaaaa;
+}
+
+
+
+/*** EM Modal ***/
+
+.em.em-modal.em-search-advanced footer button.button {
+    margin-bottom: inherit!important;
+    padding-bottom: inherit!important;
+}
+
+/*** EM: Events List ***/
+
+.em.em-list {
+    grid-gap: 0; /* override default 25px -- adds too much h space */
+}
+
+.calendar_link:before {
+    content: "\f508";
+}
+
+h2.em_events,
+h3.em_events,
+.entry-content h2.em_events,
+.entry-content h3.em_events,
+.media_list h2,
+.entry-content .media_list h2 {
+    border-top: 1px solid #ededed; /* changed from #eee in response to AG request re sermon archive */
+    padding: 2rem 0 0rem 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #444444;
+}
+
+h2.em_events.compact {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.archive.stc_em_events .entry-header {
+	padding-top: 0;
+}
+
+.stc_em_events.hide_day_titles .day_title_shortcode {
+    display: none;
+}
+
+.stc_em_events .overlay .event_title {
+    font-size: inherit;
+    font-weight: 500;
+}
+
+.event_time {
+    text-transform: lowercase;
+}
+
+.stc_em_events .event_time,
+.event_datetime,
+.stc_em_events .event_location,
+.posted-on {
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+.event_datetime {
+    margin: 0 0 0.2rem 0;
+}
+
+div.em_event {
+    height: auto;
+}
+
+.stc_em_events .em_event p {
+    font-size: 0.95rem;
+}
+
+/* for when excerpt is used as title in events_list_grouped */
+.stc_em_events .em_event .event_title a p {
+    font-size: inherit;
+    margin: inherit;
+}
+
+.stc_em_events .em_event {
+    padding-bottom: 1rem;
+    clear: both;
+}
+
+.em_event .float-left img {
+    margin: 0 0.5rem 1.5rem 0;
+}
+
+.widget .stc_em_events {
+    padding: 1rem;
+    font-size: 0.8rem;
+    font-weight: normal;
+    line-height: 1.6;
+}
+
+.widget .stc_em_events .em_event,
+.widget ul.em_events li {
+    padding-bottom: 1.1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.widget .stc_em_events .event_title {
+    font-size: 1rem;
+}
+
+/*.widget .stc_em_events .em_event {
+    padding-bottom: 0rem;
+}*/
+
+.widget .stc_em_events .em_event p {
+    font-size: 0.85rem;
+    padding: .5rem 0 0rem 0;
+    margin-bottom: .5rem;
+}
+
+.em-pagination .page-numbers,
+.em .em-pagination .page-numbers,
+.em .em-pagination .page-numbers.current,
+.em .em-pagination .page-numbers:hover {
+    display: inline-block;
+    text-align: center;
+    font-size: 0.9rem !important;
+    font-family: var(--global--font-primary); 
+    border: 0;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.em-pagination .page-numbers,
+.em .em-pagination .page-numbers,
+.em .em-pagination .page-numbers.current,
+.em .em-pagination .page-numbers:hover,
+.em .em-pagination .page-numbers.next, 
+.em .em-pagination .page-numbers.next.last, 
+.em .em-pagination .page-numbers.prev, 
+.em .em-pagination .page-numbers.prev.first {
+    margin: 0 0.1rem 0.5rem 0;
+    padding: 0.5rem 0.1rem;
+    width: 2rem;
+    height: 2.2rem;
+    line-height: normal;   
+    
+}
+
+.em .em-pagination .page-numbers {
+    min-width: 30px;
+}
+
+.em-pagination .page-numbers,
+.em .em-pagination .page-numbers {
+    background: #E9E7E7;
+    color: #333333 !important;
+}
+
+.em-pagination .page-numbers.current,
+.em .em-pagination .page-numbers.current {
+    background: #E81E12;
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.devsite .em .em-pagination.overflowing .not-current .page-numbers {
+    /*display: block;*/
+    opacity: 0.5;
+}
+
+.devsite .not-current.first-half {
+    border: 2px solid transparent;
+}
+
+.devsite .not-current.second-half {
+    border: 2px solid transparent;
+}
+
+.em .em-pagination.overflowing .not-current:after,
+.em .em-pagination.overflowing .not-current.first-half:after,
+.em .em-pagination.overflowing .not-current.second-half:after {
+    padding: 0;
+}
+
+/*** EM Event Registration/Booking ***/
+
+/* TMP mod to make h2-like reg links. Rejected in favor of button styling
+.single_event_registration .dialog_handle {
+    font-size: 1.4rem;
+    font-weight: 400;
+}*/
+
+/*
+display:inline-flex; width:260px; height:260px;
+*/
+
+/*** Special IMG formatting for gallery display AND EM: Single Event featured image ***/
+.gallery-icon img,
+.em_event_single .post-thumbnail img {
+    width: 100%;
+    margin: 1rem 0 0 0;
+}
+
+/*** EM Events Booking Forms ***/
+
+/*.booking_form {
+    border: 1px solid grey;
+    box-shadow: 0 0 7px rgba(0,0,0,.7);
+    -webkit-box-shadow: 0 0 7px rgba(0,0,0,.7);
+    -moz-box-shadow: 0 0 7px rgba(0,0,0,.7);
+    background-color: #efefef;
+    padding: 1rem;
+}*/
+
+.em-booking {
+    margin: 1rem 0px 1rem 0px;
+    font-size: 0.85rem;
+}
+
+.em-booking-form {
+    
+    font-size: 0.85rem;
+}
+
+.em.em-event-booking-form h3.em-booking-section-title {
+    color: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem;
+    border: none;
+}
+
+.em-booking-form-details {
+    width: 100%;
+    padding: 0;
+    float: none;
+}
+
+.em-booking-form label {
+    width: auto;
+    padding-right: 0.5rem;
+    display: block;
+    float: none;
+}
+
+.em-attendee-fieldset {
+    /*This doesn't work properly with the additional attendee floats. Disabled for now:
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    */
+}
+
+.em-attendee-fields.em-booking-single-edit {
+    width: 50%;
+    float: left;
+}
+
+.em-attendee-fields,
+.em-attendee-fields.em-booking-single-edit,
+.input-user_email,
+.input-field-phone_number {
+    width: 50%;
+    float: left;
+}
+
+.em.em-event-booking-form .em-tickets,
+.em.em-event-booking-form .em-booking-section {
+    margin: 0 1rem;
+}
+
+p.input-field-phone_number {
+    clear: none;
+}
+
+.attendee {
+    float: left;
+    font-weight: bold;
+}
+
+p.input-field-attendee_firstname,
+p.input-field-attendee_lastname {
+    width: 50%;
+    float: left;
+    clear: none;
+}
+
+p.input-field-attendee_firstname {
+    clear: left;
+}
+
+p.input-field-attendee_lastname {
+    clear: right;
+}
+
+.input-group.input-field-attendee_name {
+    display: inline;
+}
+
+.em-booking-form span.input-group {
+    margin-left: 1.5rem;
+}
+
+.em-booking-form-details input.input, 
+.em-booking-form-details textarea {
+    width: 98%;
+}
+
+input#access_requirements {
+    width: 100%;
+}
+
+.marginup {
+    margin-top: -0.5rem;
+    display: block;
+}
+
+.border_bottom {
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.stc_em_events .marginup {
+    margin-bottom: 1rem;
+}
+
+/*
+.input-field-first_name,
+.input-field-last_name {
+    width: 50%;
+    float: left;
+}
+
+.em-booking-form p.input-field-last_name {
+    clear: right;
+}
+*/
+
+
+/*** EM: Widgets ***/
+
+a.calnav {
+    color: #665F59;
+}
+
+a.calnav:hover {
+    color: #E71105;
+}
+
+.home .widget_em_widget ul,
+ul.em_events,
+.content-bottom-widgets .stc_em_events ul {
+    margin: 0;
+    padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.home .widget_em_widget ul li,
+ul.em_events li,
+.content-bottom-widgets .stc_em_events ul li {
+    list-style: none;
+}
+
+li.all-events-link {
+    margin-top: 1rem;
+}
+
+.em-calendar-wrapper,
+.widget > :last-child.em-calendar-wrapper {
+    margin-bottom: 0.4rem;
+}
+
+.entry-content ul.event-categories {
+    margin-left: 0;
+}
+
+ul.event-categories > li,
+ul.event-categories li {
+    list-style: none;
+    float: left;
+}
+
+ul.event-categories > li > a {
+    padding: 0.2rem 0.4rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    background: #E5E2E2;
+    color: #665F59;
+    text-transform: uppercase;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.edit_link a {
+    font-size: 0.9rem;
+}
+
+.edit_link a:before {
+    font-family: "dashicons";
+    content: "\f464";
+}
+
+
+/*** EM Events Search Tools ***/
+
+.em.em-search .em-search-main.em-search-main-bar, .em.em-search-advanced .em-search-main.em-search-main-bar {
+    flex-wrap: wrap;
+}
+
+.em.em-search .em-search-main.em-search-main-bar>.em-search-text {
+    width: 50%;
+}
+
+.em.em-search.has-advanced.has-views .em-search-views {
+    display: none;
+}
+
+/* For inline advanced search, hide redundant scope and text input fields -- we need them to exist so as not to break the JS */
+.advanced-mode-inline .em.em-search-advanced .em-search-main input.em-search-text,
+.advanced-mode-inline .em.em-search-advanced .em-search-main input.em-search-scope {
+    display: none;/**/
+}
+
+div.em-search-tools {
+    /*display: flex;*/
+    width: 100%;
+}
+.em.em-search.size-small .em-search-scope {
+    display: block;
+    visibility: visible;
+}
+
+div.em-search-scope {
+    /*min-width: 50%;
+    padding-right: 1rem;*/
+}
+
+.em.em-search.size-small {
+    padding: 0!important;
+}
+
+.selectize-control.single .selectize-input.input-active, 
+.selectize-input,
+.selectize-dropdown, 
+.selectize-dropdown.form-control {
+    /*background: transparent;*/
+}
+
+.em .selectize-control.em-selectize.always-open .selectize-input input[type=text] {
+    margin: 0 !important;
+}
+
+div.css-search,
+.em-search {
+    background-color: #f5f5f5;
+    border: none;
+}
+
+div.css-search div.em-search-main .em-search-submit {
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #666), color-stop(1, #999) );
+    background: -moz-linear-gradient( center top, #666 5%, #999 100% );
+    background-color: #666;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    width: auto;
+    margin: 0 0.1rem 0.5rem 0;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: normal;
+    text-shadow: none;
+}
+
+div.css-search div.em-search-advanced label > span {
+    min-width: 4.5rem;
+}
+
+div.css-search div.em-search-text {
+    margin: 0;
+    padding-left: 0;
+    background-image: none;
+}
+
+div.css-search input, 
+div.css-search select, 
+div.css-search option, 
+div.css-search div, 
+div.css-search span, 
+div.css-search button {
+    font-size: 0.9rem;
+}
+
+div.css-search input {
+    margin-bottom: 5px;
+}
+
+div.css-search input.hasDatepicker {
+    width: 300px;
+}
+
+div.css-search div.em-search-main .em-search-submit:hover {
+    background: #E81E12;
+    color: #ffffff;
+}
+
+.em-search-category {
+    /*margin-right: 1rem;*/
+}
+
+.em .selectize-control.em-selectize.always-open .selectize-dropdown {
+    display: inherit !important;
+    max-height: 80px;
+    overflow: scroll;
+    overflow-x: clip;
+}
+
+
+input.placeholder {
+    font-style: italic;
+}
+
+::-webkit-input-placeholder {
+    font-style: italic;
+}
+:-moz-placeholder { /* older Firefox*/
+    font-style: italic;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    font-style: italic;
+} 
+:-ms-input-placeholder {
+    font-style: italic;
+}
+
+
+/*******************************************
+***** RESPONSIVITY (aka MEDIA QUERIES) *****
+********************************************/
+
+/*** Hover Capability ***/
+
+/* Primary input mechanism system can 
+   hover over elements with ease */
+@media (hover: hover) {
+    .stc_em_events .overlay .event_title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 30em) {
+	.em_event .float-left,
+	.em_event .float-left img {
+		width: 100%;
+	}
+}
+
+/*** NOTE: MAX-width query. */
+@media screen and (max-width: 56em) {
+    
+    .em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a, 
+    .em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+    /**/
+    table.em-calendar td.eventful a,
+    table.em-calendar td.eventful-today a,
+    table.em-calendar td.eventful-pre a,
+    table.em-calendar td.eventful-post a,
+    table.em-calendar td.eventless {
+        font-size: 0.9rem;
+    }
+    
+    #mega-menu-wrap-secondary-header-nav #mega-menu-secondary-header-nav > li.mega-menu-item {
+        display: inline-block;
+    }
+    
+    /*** Ninja Forms ***/
+    .nf-multi-cell .nf-cell {
+        min-width: 50%;
+    }
+    
+}
+
+/**
+ * 14.4 - >= 985px
+ */
+
+@media screen and (min-width: 61.5625em) {
+    
+    .em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a, 
+    .em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+    /**/
+    table.em-calendar td.eventful a,
+    table.em-calendar td.eventful-today a,
+    table.em-calendar td.eventful-pre a,
+    table.em-calendar td.eventful-post a,
+    table.em-calendar td.eventless {
+        font-size: 0.8rem;
+    }
+    
+    /*** WooCommerce ***/
+    
+    .woocommerce div.product.nyp-product .woocommerce-product-details__short-description {
+        /*width: 90%;*/
+    }
+	
+}
+
+/**
+ * 14.5 - >= 1200px
+ */
+
+@media screen and (min-width: 75em) {
+	
+    .em.em-calendar .em-cal-body .em-cal-day.eventful-today .em-cal-day-date a, 
+    .em.em-calendar .em-cal-body .em-cal-day.eventless-today .em-cal-day-date a,
+    /**/
+    table.em-calendar td.eventful a,
+    table.em-calendar td.eventful-today a,
+    table.em-calendar td.eventful-pre a,
+    table.em-calendar td.eventful-post a,
+    table.em-calendar td.eventless {
+        font-size: 0.9rem;
+    }
+	
+}
