@@ -8,13 +8,17 @@
  * $args - the args passed onto EM_Events::output()
  * 
  */
-
-echo "<!-- wpt: events-manager -> events-list-grouped -->";
-
-//add_query_arg( 'test', 'charpentier');
-//echo "<h3>".'$_REQUEST'.": <pre>".print_r( $_REQUEST, true )."</pre>";
-
 $args = apply_filters('em_content_events_args', $args);
+if( empty($args['id']) ) $args['id'] = rand(); // prevent warnings
+$id = esc_attr($args['id']);
+
+/*** Start STC/ATC ***/
+echo "<!-- wpt: events-manager -> events-list-grouped -->"; // tft
+$troubleshooting = ""; // init
+
+//add_query_arg( 'test', 'charpentier'); // tft
+$troubleshooting .= '$_GET'.": <pre>".print_r( $_GET, true )."</pre>"; // tft
+$troubleshooting .= '$_REQUEST'.": <pre>".print_r( $_REQUEST, true )."</pre>"; // tft
 
 // If the $_REQUEST array contains scope vars passed from the sidebar widget, then include those in the $args array for the event filters
 // Old version: scope value from datepicker
@@ -28,7 +32,6 @@ if ( isset($_REQUEST['scope']) && (isset($_REQUEST['scope-source']) && $_REQUEST
 
 // New version: scope month and year which must be combined to form proper scope var
 if ( ( isset($_REQUEST['scope_month']) || isset($_REQUEST['scope_year']) ) && (isset($_REQUEST['scope-source']) && $_REQUEST['scope-source'] == 'widget') ) {
-//if ( ( $_REQUEST['scope_month'] || $_REQUEST['scope_year'] ) && $_REQUEST['scope-source'] == 'widget' ) { 
     
     // If no year was specified, use this year
     if (isset($_REQUEST['scope_year'])) { $year = $_REQUEST['scope_year']; } else { $year = date('Y'); }
@@ -39,9 +42,7 @@ if ( ( isset($_REQUEST['scope_month']) || isset($_REQUEST['scope_year']) ) && (i
     // Create start date as first day of selected month/year
     $start_date = $year."-".$month."-01"; 
     
-    $args['scope'] = $start_date.",";
-    //$args['scope'][0] = $start_date;
-    add_query_arg( 'scope', $args['scope']);
+    $args['scope'] = $start_date.","; //$args['scope'][0] = $start_date;
     
     $scope = $args['scope'];
     
@@ -49,17 +50,28 @@ if ( ( isset($_REQUEST['scope_month']) || isset($_REQUEST['scope_year']) ) && (i
         $args['action'] = $_REQUEST['action'];
     }
     
-    //echo "widget scope: $scope<br />"; // tft
+    $troubleshooting .= "widget scope: $scope<br />"; // tft
     
-} else if ( isset($_GET["scope"]) ) {
+} /*else if ( isset($_REQUEST["scope"]) ) {
+    
+    $scope = $_REQUEST["scope"];
+    if ( $scope != "" ) {
+        $args['scope'] = $scope;
+    }
+    
+} */else if ( isset($_GET["scope"]) ) {
     
     $scope = $_GET["scope"];
     if ( $scope != "" ) {
         $args['scope'] = $scope;
     }
     
-    //echo "scope: $scope<br />"; // tft
-    
+}
+
+// WIP 220913
+if ( isset($scope) ) {
+    //add_query_arg( 'scope', $scope);
+    $troubleshooting .= "WIP add_query_arg scope: $scope<br />"; // tft
 }
 
 if ( isset($_GET["category"]) ) {
@@ -79,8 +91,19 @@ if ( isset($_GET["category"]) ) {
 
 //echo "<pre>".print_r( $args, true )."</pre>"; // tft
 
-if ( get_option('dbem_css_evlist') ) { echo "<div class='css-events-list'>"; }
 
-echo EM_Events::output_grouped($args); //note we're grabbing the content, not em_get_events_list_grouped function
-    
-if ( get_option('dbem_css_evlist') ) { echo "</div>"; }
+$troubleshooting .= "args: <pre>".print_r($args, true)."</pre>"; // tft
+
+if ( $troubleshooting != "" && function_exists('devmode_active') && devmode_active() ) {
+    echo '<div class="troubleshooting">'.$troubleshooting.'</div>';
+}
+
+/*** End STC/ATC ***/
+?>
+<div class="<?php em_template_classes('view-container'); ?>" id="em-view-<?php echo $id; ?>" data-view="list-grouped">
+	<div class="<?php em_template_classes('events-list', 'events-list-grouped'); ?>" id="em-events-list-grouped-<?php echo $id; ?>">
+	<?php
+	echo EM_Events::output_grouped($args); //note we're grabbing the content, not em_get_events_list_grouped function
+	?>
+	</div>
+</div>
