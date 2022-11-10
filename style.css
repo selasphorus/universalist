@@ -972,6 +972,11 @@ a.affiliation:hover {
     float: right;
 }
 
+.widget .search-form {
+	background: inherit;
+    width: 100%;
+}
+
 /*** NAVIGATION ***/
 
 /* Menu icons */
