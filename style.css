@@ -723,7 +723,7 @@ No Sidebar/Full Width page
 }
 
 #site-header-menu {
-    max-width: 1252px;
+    /*max-width: 1252px; disabled 6/23 in favor of hamburger styling */
     margin: 0 auto;
 	position: relative;
 	/*position: -webkit-sticky;  Safari */
