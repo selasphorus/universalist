@@ -24,8 +24,15 @@ get_header(); ?>
 
 			<header class="page-header">
 				<?php
+                if ( !is_post_type_archive() ) {
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
+                } else {
+                	$archive_title = get_field($post_type.'_archive_title', 'option');
+                	if ( empty($archive_title) ) { $archive_title = post_type_archive_title("", false); }
+                    echo '<h1 class="page-title archive">'.$archive_title.'</h1>';
+                    // TODO: consider instead using apply_filters( 'post_type_archive_title', string $post_type_name, string $post_type )
+                }
 				?>
 			</header><!-- .page-header -->
 
