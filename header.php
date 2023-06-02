@@ -42,6 +42,8 @@
 	
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a>
 
+		<button class="toggle-menu">Menu</button>
+		
 		<div class="overlay-menu">
 		
 			<div class="full-screen-menu">

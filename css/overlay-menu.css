@@ -45,3 +45,8 @@
     font-size: 16px; /* Adjust as needed */
     background-color: inherit;
 }
+
+.toggle-menu {
+    display: block;
+    margin: 10px;
+}
