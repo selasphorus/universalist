@@ -83,10 +83,17 @@ function register_my_menus() {
       	'secondary-header-nav' => __( 'Secondary Header Menu' ),
 		'header-tabs' => __( 'Header Tabs Menu' ),
 		//'secondary-header-nav-mobile' => __( 'Secondary Header Menu - Mobile' ),
-      	'footer-nav' => __( 'Footer Menu' )
+      	'footer-nav' => __( 'Footer Menu' ),
+      	'full_screen_menu' => __( 'Full Screen Menu' )
     )
   );
 }
+/*
+function custom_theme_setup() {
+    register_nav_menu('full_screen_menu', 'Full Screen Menu');
+}
+add_action('after_setup_theme', 'custom_theme_setup');
+*/
 
 // Add custom query vars
 // TODO: move this to plugins/allsouls?
