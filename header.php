@@ -42,6 +42,24 @@
 	
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a>
 
+		<div class="overlay-menu">
+		
+			<div class="full-screen-menu">
+				<div class="container">
+					<nav class="menu-column">
+						<?php
+						wp_nav_menu(array(
+							'theme_location' => 'full_screen_menu',
+							'container' => false,
+							'menu_class' => 'menu',
+						));
+						?>
+					</nav>
+				</div>
+			</div>
+		
+		</div>
+		
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-header-main">
 				
@@ -57,7 +75,7 @@
 					<a href="/product-category/giving/"><span class="button-text">Give to Saint Thomas Church</span></a>
 				</div> */ ?>
 				
-				<?php if ( has_nav_menu( 'secondary-header-nav' ) ) : ?>
+				<?php /*if ( has_nav_menu( 'secondary-header-nav' ) ) : ?>
 					<div id="secondary-header-nav">
 					<nav id="site-navigation-secondary" class="secondary-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Header Menu', 'twentysixteen' ); ?>">
 						<?php
@@ -70,10 +88,11 @@
 						?>
 					</nav>
 					</div>
-				<?php endif; ?>
+				<?php endif;*/ ?>
 				
 			</div><!-- .site-header-main -->
-				
+			
+			<?php /*	
 			<div id="site-header-menu" class="site-header-menu">
 				
 				<?php if ( has_nav_menu( 'header-tabs' ) ) : ?>
@@ -104,7 +123,8 @@
 					</nav><!-- .main-navigation -->
 				<?php endif; ?>
 			</div><!-- .site-header-menu -->
-
+			*/?>
+			
 			<?php if ( get_header_image() ) : ?>
 				<?php
 					/**
