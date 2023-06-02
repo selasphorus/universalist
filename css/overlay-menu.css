@@ -29,6 +29,15 @@
     background-color: inherit;
     flex: 50%;
     min-width: 300px;
+    padding: 1rem;
+}
+
+.primary {
+	background-color: #698189;
+}
+
+.secondary {
+	background-color: #8ba0a6;
 }
 
 .menu {
@@ -45,8 +54,6 @@
 
 .menu a {
     text-decoration: none;
-    color: #000; /* Adjust as needed */
-    font-size: 16px; /* Adjust as needed */
     background-color: inherit;
 }
 
