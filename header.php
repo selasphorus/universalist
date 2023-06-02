@@ -51,7 +51,7 @@
 				<button class="toggle-menu">Close Menu</button>
 				
 				<div class="container">
-					<nav class="menu-column">
+					<nav class="menu-column primary">
 						<?php
 						wp_nav_menu(array(
 							'theme_location' => 'full_screen_menu_primary',
@@ -60,7 +60,7 @@
 						));
 						?>
 					</nav>
-					<nav class="menu-column">
+					<nav class="menu-column secondary">
 						<?php
 						wp_nav_menu(array(
 							'theme_location' => 'full_screen_menu_secondary',
