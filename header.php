@@ -51,7 +51,7 @@
 					<nav class="menu-column">
 						<?php
 						wp_nav_menu(array(
-							'theme_location' => 'full_screen_menu_left',
+							'theme_location' => 'full_screen_menu_primary',
 							'container' => false,
 							'menu_class' => 'menu',
 						));
@@ -60,7 +60,7 @@
 					<nav class="menu-column">
 						<?php
 						wp_nav_menu(array(
-							'theme_location' => 'full_screen_menu_right',
+							'theme_location' => 'full_screen_menu_secondary',
 							'container' => false,
 							'menu_class' => 'menu overlay-menu',
 						));

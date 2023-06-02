@@ -94,7 +94,8 @@ function register_my_menus() {
 		'header-tabs' => __( 'Header Tabs Menu' ),
 		//'secondary-header-nav-mobile' => __( 'Secondary Header Menu - Mobile' ),
       	'footer-nav' => __( 'Footer Menu' ),
-      	'full_screen_menu' => __( 'Full Screen Menu' ),
+      	'full_screen_menu_primary' => __( 'Full Screen Menu - Primary' ),
+      	'full_screen_menu_secondary' => __( 'Full Screen Menu - Secondary' ),
     )
   );
 }
