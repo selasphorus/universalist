@@ -48,7 +48,7 @@
 		
 			<div class="full-screen-menu">
 				
-				<button class="toggle-menu">Close Menu</button>
+				<button class="toggle-menu">X</button>
 				
 				<div class="container">
 					<nav class="menu-column primary">
