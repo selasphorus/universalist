@@ -61,6 +61,12 @@ function theme_enqueue_admin_scripts_and_styles() {
     }
     wp_enqueue_style( 'universalist-admin',  get_stylesheet_directory_uri() . '/admin.css', NULL, $ver );
     
+    $filepath = get_stylesheet_directory() . '/css/overlay-menu.css';
+    if ( !$ver = filemtime( $filepath ) ) { // version tag based on file modification time -- for cache-busting
+        $ver = ""; // TODO: find a better alternative to nothing...
+    }
+    wp_enqueue_style( 'universalist-overlay-menu',  get_stylesheet_directory_uri() . '/css/overlay-menu.css', NULL, $ver );
+    
 }
 
 //
