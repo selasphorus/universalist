@@ -49,9 +49,18 @@
 					<nav class="menu-column">
 						<?php
 						wp_nav_menu(array(
-							'theme_location' => 'full_screen_menu',
+							'theme_location' => 'full_screen_menu_left',
 							'container' => false,
 							'menu_class' => 'menu',
+						));
+						?>
+					</nav>
+					<nav class="menu-column">
+						<?php
+						wp_nav_menu(array(
+							'theme_location' => 'full_screen_menu_right',
+							'container' => false,
+							'menu_class' => 'menu overlay-menu',
 						));
 						?>
 					</nav>
