@@ -48,6 +48,7 @@
 		
 			<div class="full-screen-menu">
 				<div class="container">
+					<button class="toggle-menu">Close Menu</button>
 					<nav class="menu-column">
 						<?php
 						wp_nav_menu(array(
