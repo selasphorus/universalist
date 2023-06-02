@@ -53,5 +53,8 @@
 .toggle-menu {
     display: block;
     margin: 5%;
-    float: right;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 99;
 }
