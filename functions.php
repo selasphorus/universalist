@@ -42,8 +42,8 @@ function site_scripts_and_styles() {
 		//wp_register_script('adminjs', TEMPLATE_URL . '/js/adminjs.js', array( 'jquery' ) );
 		//wp_enqueue_script('adminjs');		
 	} else {
-		 // Video controls JS
-        wp_register_script('menujs', TEMPLATE_URL . '/js/menu-toggle.js' );
+		// Menu toggle JS
+        wp_register_script('menujs', get_stylesheet_directory_uri() . '/js/menu-toggle.js' );
         wp_enqueue_script('menujs');
 	}
 		
